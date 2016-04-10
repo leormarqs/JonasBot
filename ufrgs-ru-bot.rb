@@ -41,7 +41,7 @@ Telegram::Bot::Client.run(token) do |bot|
     when '/ru6'
       bot.api.send_message(chat_id: message.chat.id, text: " #{getMenu(6)}")
     else
-      bot.api.send_message(chat_id: message.chat.id, text: "\\ru1, \\ru2, ... \\ru6 para ver o menu do RU")
+      bot.api.send_message(chat_id: message.chat.id, text: "/ru1, /ru2, ... /ru6 para ver o menu do RU")
     end
   end
 end
