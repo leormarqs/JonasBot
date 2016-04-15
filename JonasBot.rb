@@ -13,8 +13,8 @@ token = File.read('token.txt').strip
 
 Telegram::Bot::Client.run(token) do |bot|
   bot.listen do |message|
-    total = 100
-    var1 = Random.rand(total)
+    total = 200
+    var1 = Random.rand(0 .. total)
     case var1
     when total
       bot.api.send_message(chat_id: message.chat.id, text: "Bixa, a sra. é dextruidora mexmo!" )
@@ -34,7 +34,7 @@ Telegram::Bot::Client.run(token) do |bot|
       if var1 < 35
       then
         image = './Images/' + var1.to_s + '.jpg'
-        bot.api.send_photo(chat_id: message.chat.id, photo: Faraday::UploadIO.new(image, 'image/jpeg'))
+        bot.api.send_photo(chat_id: message.chat.id, photo: Faraday::UploadIO.new(image,'image/jpg'))
       end
     end
   end
