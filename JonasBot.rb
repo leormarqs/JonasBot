@@ -14,7 +14,7 @@ token = File.read('token.txt').strip
 Telegram::Bot::Client.run(token) do |bot|
   bot.listen do |message|
 
-    total = 500
+    total = 1000
     var1 = Random.rand(0 .. total)
     
     case message.text
@@ -23,7 +23,7 @@ Telegram::Bot::Client.run(token) do |bot|
     when "\/help@JonasUfrgsBot"
       bot.api.send_photo(chat_id: message.chat.id, photo: Faraday::UploadIO.new('./Images/help.jpg','image/jpg'), reply_to_message_id: message.message_id)
     else
-      case Random.rand(10) == 4
+      case Random.rand(20) == 9
       when TRUE
         case var1
         when total - 1
@@ -42,7 +42,7 @@ Telegram::Bot::Client.run(token) do |bot|
           bot.api.send_message(chat_id: message.chat.id, text: "Veja lá o que cê vai fazer.")
         else
 
-          if var1 <= 409
+          if var1 <= 435
           then
             image = './Images/' + var1.to_s + '.jpg'
             bot.api.send_photo(chat_id: message.chat.id, photo: Faraday::UploadIO.new(image,'image/jpg'))
